@@ -1,0 +1,23 @@
+import PyPDF2
+from gtts import gTTS
+import os
+#open the PDF file
+pdf_file = open("C:/Users/HP/Downloads/106104220.pdf", 'rb')
+#create a PDF reader object
+pdf_reader= PyPDF2.PdfFileReader(pdf_file)
+#extract text from pages 1 to 609
+text = ""
+for page_num in range(609):
+    page = pdf_reader.pages[page_num]
+    text +=page.extract_text()
+    #create a gTTS object
+    tts = gTTS(text=text, lang='en') 
+    #save the audio to a file
+    tts.save("C:/Users/HP/Downloads/audio.mp3")
+    #close the PDF file
+    pdf_file.close()
+    #play the audio file
+    os.system("C:/Users/HP/Downloads/audio.mp3")
+
+
+

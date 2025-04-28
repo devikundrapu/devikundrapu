@@ -1,0 +1,128 @@
+class  product:
+ def __init__(self, product_id, name, price, quantity):
+  self.product_id= product_id
+
+  self.name=name 
+  self.price=price
+  self.quantity=quantity
+  class Bill:
+   def  __init__(self):
+    self.products={}
+    self.total=0
+    def add_product(self,product,quantity_to_add):
+     if product.quantity>=quantity_to_add:
+       if product in  self.products:
+         self.products[product]+=quantity_to_add
+       else:
+         self.products[product]=quantity_to_add
+         product.quantity-=quantity_to_add
+         self.total+=product.price*quantity_to_add
+     else:
+        print("insufficient quantity in stock.")
+    
+     def remove_product(self, product, quantity_to_remove):
+        if  product in self.products:
+          if self. products[product] >=quantity_to_remove:
+            self.products[product]-=quantity_to_remove
+            product.quantity+=quantity_to_remove
+            self.total-=product.price * quantity_to_remove
+          else:
+            print("quantity to remove exceeds quantity in bill.")
+        else:
+            print("product not found in bill.")
+   def calculate_tax(self,tax_rate):
+       return  self.total*tax_rate/100
+  def generate_bill (self,tax_rate=0):
+       price("\n bill details:")
+       for product, quantity in  self. products. items():
+        print(f"{product.name}x {quantity}={product.price* quantity}")
+        print(f"subtotal: {self.total}")
+        tax=self.calculate_tax(tax_rate)
+        print(f"tax({tax_rate} %: {tax})")
+        print(f"total: {self.total+tax}")
+
+
+class supermarket:
+  def __init__(self):
+    self.products={}
+    def add_product(self, product_id, name, price,quantity):
+     self. products[product_id]=product(product_id,name, price,quantity)
+    def  get_product(self,product_id):
+      return
+    self. products.get(product_id)
+
+    def main ():
+      supermarket=supermarket()
+
+      # adding some sample products
+      supermarket.add_product("1", "apple", 10,100)
+      supermarket.add_product("2", "banana",5,50)
+      supermarket.add_product("3", "Orange", 15,200)
+
+    bill=bill()
+    while True:
+       print("\n 1. add product to bill")
+       print("2.remov e product from bill")
+       print("3.generate bill")
+       print("4. check product quantity")
+       print("5.exit")
+       choice=input("choose an option:")
+    if choice=='1':
+         product_id=input("enter product id:")
+         product=supermarket.get_product(product_id)
+         if product: quantity_to_add=int(input("enter quantity to add:"))
+         bill.add_product(product,quantity_to_add)
+    else:
+         print("product not found.")
+    if choice=='2':
+        product_id=input("enter product id:")
+        product=supermarket.get_product(product_id)
+        if product: quantity_to_remove=int(input("enter quantity to remove:"))
+        bill.remove_product(product, quantity_to_remove)
+    else:
+      print("product not found.")
+      if choice=='3':
+        tax_rate=float(input("enter tax rate (default=0):")or 0)
+        bill.generate_bill(tax_rate)
+        if choice=='4':
+          product_id=input("enter product id:")
+          product=supermarket.get_product(product_id)
+          if product:
+            print(f"quantity of {product.name}:{product.quantity}")
+          else:
+            print("product not found")
+        if choice=='5':
+           Break
+        else:
+          print("invalid  option,")
+
+
+
+
+ 
+
+      
+
+
+
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      

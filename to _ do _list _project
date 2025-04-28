@@ -1,0 +1,66 @@
+class  ToDoList:
+ def __init__(self):
+        
+   self.to_do_list=[]
+def add_task(self,task,status="pending"):
+   if task in self . to_do_list:
+      print("the task is already added! add new one !")
+   else:
+     self.to_do_list[task]=status
+     print("\ntask added successfully!")
+def remove_task(self, task,status="pending"):
+  if task in self.to_do_list:
+     del self.to_do_list
+     print("\ntask is remove successfully!")
+  else:
+    print("\n the task doesn't exist in To_Do_List")
+
+    def mark_done(self,task,status="completed"):
+      if task in self.to_do_list:
+        self.to_do_list[task]=status
+        print("\n given task marked as done")
+      else:
+        print("\nthe task doesn't exist in To_DO_List")
+
+      def show_tasks(self):
+        if self.to_do_list:
+          print("\n tasks status")
+          print("-"*30)
+          i=1
+          for task ,status in self.to_do_list.items():
+            print(f"\n{i}.{task}-{status}")
+            i+=1
+          else:
+            print("your To_Do_List is empty!")
+            obj = ToDoList()
+          while True:
+            print("\n to_do_list Menu:")
+            print("1. add a task")
+            print("2.remove a task")
+            print("3. mark a task as done")
+            print("4.display  all tasks")
+            print("5.exit")
+          choice=input("\n entern your choice (1-5):").strip()
+          if choice=='1':
+            task= input("enter the task to add:").capitalize().strip()
+            obj.add_task(task)
+          elif choice=='2':
+            task = input("enter the task to remove:").capitalize().strip()
+            obj.remove_task(task)
+          elif choice=='3':
+            task=input("enter the task to mark as done:").capitalize().strip()
+            obj.mark_done(task)
+          elif choice=='4':
+            obj.show_tasks()
+          elif choice=='5':
+            print ("\n exting the program ...")
+            print("\n thank you !\n")
+            Break
+      
+        else:
+            print("enter a valid choice in digits 1-5 only!")
+
+
+  
+
+            

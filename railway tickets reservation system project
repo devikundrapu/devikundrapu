@@ -1,0 +1,92 @@
+class train:
+    def __init__(self,train_number,train_name,source, destination,seats):
+        self.train_number=train_number
+        self.train_name=train_name
+        self.source=source
+        self.destination=destination
+        self.seats=seats
+        self.reserved_seats=[]
+class Railwaysystem:
+    def __init__(self):
+        self.trains=[]
+    def add_train(self):
+        train_number=input("Enter train number:")
+        train_name=input("Enter train name:")
+        source=input("Enter source station:")
+        destination=input("Enter destination station:")
+        seats=int(input("Enter number of seats:"))
+        self.trains.append(train(train_number, train_name,source,destination,seats))
+        print("Train added successfully!")
+    def reserve_ticket(self):
+        if not self.trains:
+            print("no trains available!")
+            return
+        for i, train in enumerate(self.trains):
+            print(f"{i+1}. Train number:{train.train_number}, train name:{train.train_name},source:{train.source},destination:{train.destination}, available seats:{train.seats-len(train.reserved_seats)}")
+            train_number=input("Enter train number to reserve ticket:")
+            for train in self.trains:
+              if train.train_number==train_number:
+                    len(train.reserved_seats)<train.seats
+                    passenger_name=input("Enter  passsenger name:")
+                    train.reserved_seats.append(passenger_name)
+                    print("Ticket reserved successfully!")
+              else:
+                  
+                   print("no seats available!")
+                   return
+                   print("train not found!")
+
+              def cancel_ticket(self):
+                 if not self.trains:
+                        print("no trains available!")
+                        return
+                 for i, train in enumerate(self.trains):
+                        print(f"{i+1}.train number: {train.train_number},train name:{train.train_name}")
+                        train_number=input("enter train number to cancel ticket:")
+                        for  train in self.trains:
+                            if train.train_number==train_number:
+                                if train.reserved_seats:
+                                    for i, passenger in enumerate(train. reserved_seats):
+                                        print(f"{i+1}.{passenger}")
+              passenger_number=int(input("enter passenger number to cancel ticket:"))-1
+              if passenger_number<0 or passenger_number>=len(train.reserved_seats):
+                  print("invalid passenger number!")
+                  return
+              del train .reserved_seats[passenger_number]
+              print("ticket cancelled successfully!")
+            else:
+                print("no reserved tickets!")
+                return
+            print("train not found!")
+            def show_trains(self):
+                if not self.trains:
+                    print("no trains available!")
+                    return
+                for i, train in enumerate(self.trains):
+                    print(f"{i+1}.train number:{train.train_number},train name:{train.train_name}, source:{train.source}, destination:{train.destination},available seats:{train.seats-len (train.reserved_seats)}")
+
+                    def main():
+                        railway= Railwaysystem()
+                        while True:
+                            print("\n1.add train")
+                            print("2.reserve ticket")
+                            print("3 cancel ticket")
+                            print("4.show trains")
+                            print("5.exit")
+                            choice  = input("Enter your choice:")
+                            if choice =="1":
+                                Railway.add_train()
+                            elif choice=="2":
+                                railway.reserve_ticket()
+                            elif choice =="3":
+                                Railway. show_trains()
+                            elif choice == "5":
+                                break
+                            else:
+                                print("invalid choice!")
+            
+
+
+
+
+     
